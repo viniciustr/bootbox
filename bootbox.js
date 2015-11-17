@@ -635,6 +635,19 @@
       body.after(templates.footer);
       dialog.find(".modal-footer").html(buttonStr);
     }
+    
+    if (options.form) {
+      var frm = $("<form>");
+      if (options.form.className) {
+        frm.addClass(options.form.className);
+      }
+      if (options.form.attributes) {
+        each(options.form.attributes, function(k, v) {
+          frm.attr(k, v);
+        });
+      }
+      body.parent().wrap(frm);
+    }
 
 
     /**
